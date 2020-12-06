@@ -1,0 +1,12 @@
+<header>
+    <nav class="header-navbar">
+        <ul>
+            <li><a href="{{- $.Site.BaseURL -}}">Home</a></li>
+            {{- $currentPage := . -}}
+            {{- range .Site.Menus.main -}}
+            <li><a href="{{ .URL | relURL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+            {{- end -}}
+        </ul>
+    </nav>
+</header>
+

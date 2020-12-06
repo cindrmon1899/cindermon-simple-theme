@@ -1,0 +1,74 @@
+html,body {
+    height: 100%;
+    background-color: #333;
+    color: whitesmoke;
+    font-family: monospace;
+    font-size: 12pt;
+    border-spacing: 10px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 0 10px;
+    overflow: hidden;
+    background-color: #000;
+}
+  
+.header-navbar li {
+    float: left;
+}
+  
+.header-navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header-navbar li a:hover {
+    background-color: #111111;
+}
+
+.posts ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+}
+
+#content {
+    flex: 1 0 auto;
+    padding: 3rem 7rem 0 5rem;
+}
+
+a:link {
+    color: rgb(157, 203, 255);
+}
+
+a:visited {
+    color: rgb(93, 236, 255);
+}
+
+a:hover {
+    color: rgb(93, 255, 174);
+}
+
+a:active {
+    color: rgb(0, 255, 128);
+}
+
+p {
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+    flex-shrink: 0;
+    padding: 1rem;
+}
