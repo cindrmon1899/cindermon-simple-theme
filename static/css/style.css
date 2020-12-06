@@ -47,6 +47,25 @@ body {
     padding: 3rem 7rem 0 5rem;
 }
 
+@media screen and (max-width: 730px) { /* screens bigger than a galaxy fold, but smaller than a desktop */
+    #content {
+        flex: 1 0 auto;
+        padding: 1.5rem 1.5rem 0;
+    }
+}
+
+@media screen and (max-width: 280px) { /* poor galaxy fold users */
+
+    html,body {
+        font-size: 10pt
+    }
+
+    #content {
+        flex: 1 0 auto;
+        padding: 0.7rem;
+    }
+}
+
 a:link {
     color: rgb(157, 203, 255);
 }
