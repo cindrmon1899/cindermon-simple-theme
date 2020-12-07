@@ -14,3 +14,23 @@
 
 ## Previews
 
+![homepage](https://github.com/cindrmon1899/cindermon-simple-theme/blob/master/screenshots/Snapshot_1.png)
+
+![listpage](https://github.com/cindrmon1899/cindermon-simple-theme/blob/master/screenshots/Snapshot_2.png)
+
+![postpage](https://github.com/cindrmon1899/cindermon-simple-theme/blob/master/screenshots/Snapshot_3.png)
+
+## How to install
+
+- Just like most hugo themes, make a new hugo site through your terminal by typing `hugo new site <name_of_site_here>`, and then cd'ing into that folder, and do `git init`, so that you can do this command, which clones the theme onto your site:
+```
+git submodule add https://github.com/cindrmon1899/cindermon-simple-theme.git themes/cindermon-simple
+```
+
+- This creates a submodule that updates whenever I do a push and updates get directly to you, so you are always updated.
+
+- But I dare you to even do that one, as this is highly experimental.
+
+- Alternatively, you can just do a `git clone https://github.com/cindrmon1899/cindermon-simple-theme.git` and put it in your hugo site's themes folder.
+
+- And don't forget to put `theme=cindermon-simple` onto your config.toml file, or else, it won't work.
