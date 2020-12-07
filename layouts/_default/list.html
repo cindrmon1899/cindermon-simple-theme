@@ -1,21 +1,33 @@
-{{- define "main" -}}
-    {{- with .Content -}}
-        {{- . -}}
-    {{- end -}}
 
-    <div class="posts">
+{{ define "main" }}
+{{ $dateFormat := default "Jan 2" (index .Site.Params "date_format") }}
+{{ $.Scratch.Set "lastYear" ""}}
 
-        <h1>{{ .Title }}</h1>
+  <h1 class="text-center">{{ .Type | humanize}}</h1>
+  {{ range .Pages }}
 
-        {{- if .Content -}}
-        {{- .Content -}}
-        {{- end -}}
+    {{ $year := .Date.Year }}
+    {{ $lastYear := $.Scratch.Get "lastYear"}}
 
-        <ul> 
-            {{- range .Pages -}}
-            <li><a href="{{- .Permalink -}}">{{- .Title -}}</a></li>
-            {{- end -}}
-        </ul>
-    </div>
+    {{ if ne $year $lastYear }}
+    <p>{{ $year }}</p>
+    {{ $.Scratch.Set "lastYear" $year }}
+    {{ end }}
+    
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Format "2, Jan 2006" }} :: </time>
+        <a class="text-body" href="{{ .RelPermalink }}">{{ if .Draft }}DRAFT: {{end}}{{ .Title | markdownify }}</a>
+        <br/>
 
-{{- end -}}
+  {{ end }}
+
+  <div class="pagination">
+    {{- if .PrevPage }}
+    <a href="{{ .PrevPage.RelPermalink }}" class="left arrow">&#8592;</a>
+    {{- end }}
+    {{- if .NextPage }}
+    <a href="{{ .NextPage.RelPermalink }}" class="right arrow">&#8594;</a>
+    {{- end }}
+  </div>
+  
+
+{{ end }}

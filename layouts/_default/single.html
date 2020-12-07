@@ -2,11 +2,37 @@
 
 <h1>{{- .Title -}}</h1>
 
+<div class="content">
 {{- with .Content -}}
       <div>
         {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor">&#8983;</a> ${3}` | safeHTML }}
       </div>
 {{- end -}}
+</div>
 
+
+{{ if or .NextInSection .PrevInSection }}
+
+
+<div class="pagination">
+  <hr />
+  <ul>
+      <li>
+        {{ if .NextInSection }}
+        <a href="{{ .NextInSection.Permalink }}">
+          ← {{ .NextInSection.Title }}
+        </a>
+        {{ end }}
+      </li>
+      <li>
+        {{ if .PrevInSection }}
+        <a href="{{ .PrevInSection.Permalink }}">
+          {{ .PrevInSection.Title }}  →
+        </a>
+      {{ end }}
+    </li>
+  </ul>
+</div>
+{{ end }}
 
 {{- end -}}

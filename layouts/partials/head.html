@@ -12,4 +12,11 @@
     
     <title>{{- if .IsHome }}{{ .Site.Title }}{{- else }}{{ .Title }} || {{ .Site.Title }}{{- end }}</title>
 
+    <meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+    <meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+    <meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:site_name" content="{{ $.Site.Title }}" />
+
 </head>
